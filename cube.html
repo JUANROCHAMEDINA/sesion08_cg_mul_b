@@ -2,14 +2,14 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>MDN Games: Three.js demo</title>
+	<title>MDN Games: Three.js demo</title>    <!-- aqui se define el titulo  en donde se encuentra el documento , asi se mestrara en el navegador   -->
 	<style>
 		body { margin: 0; padding: 0; font-size: 0; }
-		canvas { width: 100%; height: 100%; }
+		canvas { width: 100%; height: 100%; }           <!-- el canvas es como el tablero , en el es para dibujar graficos y las animaciones -->
 	</style>
 </head>
 <body>
-<script src="js/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>  <!-- este elemento script  lo usamos para ingresar codigo o datos ejecutables, en este script incluye la biblioteca  three.js -->
 <script>
 	var WIDTH = window.innerWidth;
 	var HEIGHT = window.innerHeight;
@@ -22,7 +22,7 @@
 	var scene = new THREE.Scene();
 
 	var camera = new THREE.PerspectiveCamera(70, WIDTH/HEIGHT);
-	camera.position.z = 50;
+	camera.position.z = 60;
 	scene.add(camera);
 
 	var boxGeometry = new THREE.BoxGeometry(10, 10, 10);
