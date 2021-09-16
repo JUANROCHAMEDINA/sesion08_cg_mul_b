@@ -2,37 +2,37 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>MDN Games: Three.js demo</title>    <!-- aqui se define el titulo  en donde se encuentra el documento , asi se mestrara en el navegador   -->
+	<title>MDN Games: Three.js demo</title>                 <!-- aqui se define el titulo  en donde se encuentra el documento , asi se mestrara en el navegador   -->
 	<style>
 		body { margin: 0; padding: 0; font-size: 0; }
 		canvas { width: 100%; height: 100%; }           <!-- el canvas es como el tablero , en el es para dibujar graficos y las animaciones -->
 	</style>
 </head>
 <body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>  <!-- este elemento script  lo usamos para ingresar codigo o datos ejecutables, en este script incluye la biblioteca  three.js -->
-<script>  <!-- en resumen lo antes establecido es la estructura del html -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>  <!-- este elemento script  lo usamos para ingresar codigo o datos ejecutables, en este script incluye la libreria  three.js -->
+<script>                                             <!-- en resumen lo antes establecido es la estructura del html -->
 
-	var WIDTH = window.innerWidth;
-	var HEIGHT = window.innerHeight;
+	var WIDTH = window.innerWidth;         <!-- el ancho de la ventana -->
+	var HEIGHT = window.innerHeight;          <!-- el alto de la ventana -->
 
-	var renderer = new THREE.WebGLRenderer({antialias:true});
+	var renderer = new THREE.WebGLRenderer({antialias:true});    <!--el renderizador es un modo de representacion grafica, en que genera una imagen 2d o 3d, aqui se muestra las escenas en el navegador -->
 	renderer.setSize(WIDTH, HEIGHT);
 	renderer.setClearColor(0xDDDDDD, 1);
-	document.body.appendChild(renderer.domElement);
+	document.body.appendChild(renderer.domElement);     <!-- aqui se renderiza la figura con esto para que se muestre-->
 
-	var scene = new THREE.Scene();
+	var scene = new THREE.Scene();          <!-- elabora y cerea una escena en donde de visualize la figura -->
 
-	var camera = new THREE.PerspectiveCamera(70, WIDTH/HEIGHT);
-	camera.position.z = 60;
-	scene.add(camera);
-
-	var boxGeometry = new THREE.BoxGeometry(10, 10, 10);
-	var basicMaterial = new THREE.MeshBasicMaterial({color: 0x0095DD});
-	var cube = new THREE.Mesh(boxGeometry, basicMaterial);
+	var camera = new THREE.PerspectiveCamera(70, WIDTH/HEIGHT); <!-- tamaño de la camara-->
+	camera.position.z = 60;        <!--el posicionamiento de la camara -->
+	scene.add(camera);                 <!-- aqui se añade la camara en la escena -->
+ 
+	var boxGeometry = new THREE.BoxGeometry(10, 10, 10);       <!-- aqui se establecen las dimenciones de la figura -->
+	var basicMaterial = new THREE.MeshBasicMaterial({color: 0x0095DD}); 
+	var cube = new THREE.Mesh(boxGeometry, basicMaterial);  <!-- aqui es donde se crea la figura en nuestro caso el cube con lo propuesto material colores y dimensiones -->
 	scene.add(cube);
-	cube.rotation.set(0.4, 0.2, 0);
+	cube.rotation.set(0.4, 0.2, 0);    <!--  se define la rotacion que se establecera en el cuno teniendo en cuenta la vista y perspectiva de la camara -->
 
-	function render() {
+	function render() {   <!-- la funcion renderizar la camara y la escena  -->
 		requestAnimationFrame(render);
 		renderer.render(scene, camera);
 	}
