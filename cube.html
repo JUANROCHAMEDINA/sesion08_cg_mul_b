@@ -31,10 +31,14 @@
        scene.add( axesHelper );
  
 	var boxGeometry = new THREE.BoxGeometry(10, 10, 10);       <!-- aqui se establecen las dimenciones de la figura -->
-	var basicMaterial = new THREE.MeshBasicMaterial({color: 0x0095DD});  <!--  parametro donde se define el material de la figura -->
+	var basicMaterial = new THREE.MeshLambertMaterial({color: 0xEAEFF2});  <!--  parametro donde se define el material de la figura -->
 	var cube = new THREE.Mesh(boxGeometry, basicMaterial);  <!-- aqui es donde se crea la figura en nuestro caso el cube con lo propuesto material colores y dimensiones -->
 	scene.add(cube);
 	cube.rotation.set(0.4, 0.2, 0);    <!--  se define la rotacion que se establecera en el cubo teniendo en cuenta la vista y perspectiva de la camara -->
+
+        var light = new THREE.PointLight(0xFFFFFF);
+	light.position.set(-10, 15, 50);
+	scene.add(light);
 
 	function render() {   <!-- la funcion renderizar la camara y la escena  -->
 		requestAnimationFrame(render);
